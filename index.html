@@ -1,0 +1,1456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Nav.css">
+    <script src="neomain.js"></script>
+    <script src="navbar.js"></script>
+    <script src="old/btnflags.js"></script>
+    <script src="old/twobtnflags.js"></script>
+    <script src="old/points.js"></script>
+    <script src="old/tooltips.js"></script>
+    <title>SkillTree</title>
+</head>
+<body>
+  <h1>Strixhaven Skill Tree</h1>
+  <nav class="navbar">
+    <div class="navbar-options">
+      <ul>
+        <li  id="MageHover" onclick="showSubMenu(`MageID`, `MageHover`)">Mage</li>
+        <li  id="WarriorHover" onclick="showSubMenu(`WarriorID`, `WarriorHover`)">Warrior</li>
+        <li  id="SpecialistHover" onclick="showSubMenu(`SpecialistID`, `SpecialistHover`)">Specialist</li>    
+        <li  id="UserHover" onclick="showSubMenu(`MageID`, `UserHover`)">Settings</li>
+      </ul>
+    </div>
+  </nav>
+  <div id='MageID' class="Mage-options">
+    <span class="Creative">
+      <h4>Creative</h4>
+      <ul>
+        <li onclick="hideAllBut(`Illusionist`)">Illusionist <div><img src="icons/AncestralAwakening.png" alt="n/a"></div>  </li>
+        <li onclick="hideAllBut(`Elementomancy`)">Elementomancy <div><img src="icons/Fire.png" alt="n/a"></div></li>
+        <li onclick="hideAllBut(`Mathomancy`)">Mathomancy <div><img src="icons/ChargePositive.png" alt="n/a"></div></li>
+      </ul>
+    </span>
+    <span class="Traditional">
+        <h4>Traditional</h4>
+        <ul>
+          <li onclick="hideAllBut(`Archaeomancy`)">Archaeomancy <div><img src="icons/parchment-secrets.png" alt="n/a"></div> </li>
+          <li onclick="hideAllBut(`Protector`)">Protector <div><img src="icons/AvengersShield.png" alt="n/a"></div></li>
+          <li onclick="hideAllBut(`Evoker`)">Evoker <div><img src="icons/LightningOverload.png" alt="n/a"></div> </li>
+        </ul>
+      </span>
+      <span class="Dark-Arts">
+        <h4>Dark Arts</h4>
+        <ul>
+          <li onclick="hideAllBut(`Necromancy`)">Necromancy <div><img src="icons/DevouringPlague.png" alt="n/a"></div>  </li>
+          <li onclick="hideAllBut(`Inkomancy`)">Inkomancy <div><img src="icons/ink-quill-red.png" alt="n/a"></div></li>
+          <li onclick="hideAllBut(`Plantomancy`)">Plantomancy <div><img src="icons/lily-pink.png" alt="n/a"></li>
+        </ul>
+      </span>
+  </div>
+  <div id="WarriorID" class="Mage-options">
+    <span class="Creative">
+      <h4>Warmage</h4>
+      <ul>
+        <li onclick="hideAllBut(`Magehunter`)">Mage Hunter<div><img src="icons/ThrilloftheHunt.png" alt="n/a">  </li>
+        <li onclick="hideAllBut(`Runner`)">Runner<div><img src="icons/FleetFooted.png" alt="n/a"></li>
+        <li onclick="hideAllBut(`Spellsword`)">Spellsword<div><img src="icons/DualWieldSpecialization.png" alt="n/a"></li>
+      </ul>
+    </span>
+    <span class="Traditional">
+        <h4>Dragonsguard</h4>
+        <ul>
+          <li onclick="hideAllBut(`Guard`)">
+              Guard
+              <div><img src="icons/Defend.png" alt="n/a">  
+          </li>
+          <li onclick="hideAllBut(`Juggernaut`)">Juggernaut<div><img src="icons/IntensifyRage.png" alt="n/a"></li>
+          <li onclick="hideAllBut(`Auror`)">Auror <div><img src="icons/INVISIBILITY.png" alt="n/a"> </li>
+        </ul>
+    </span>
+    <span class="Dark-Arts">
+        <h4>Sun Tzu</h4>
+        <ul>
+          <li onclick="hideAllBut(`Archery`)">Archery<div><img src="icons/FocusedAim.png" alt="n/a"></li>
+          <li onclick="hideAllBut(`Duelist`)">Duelist<div><img src="icons/Parry.png" alt="n/a"></li>
+          <li onclick="hideAllBut(`Tactician`)">Tactician<div><img src="icons/RapidKilling.png" alt="n/a"></li>
+        </ul>
+    </span>
+  </div>
+  <div id='SpecialistID' class="Mage-options">
+    <span class="Creative">
+      <h4>Potionmaster</h4>
+      <ul>
+        <li onclick="hideAllBut(`Healer`)">Healer<div><img src="icons/InfusionofLight.png" alt="n/a"> </li>
+        <li onclick="hideAllBut(`Alchemist`)">Alchemist<div><img src="icons/16_potion_potion.png" alt="n/a"></li>
+        <li onclick="hideAllBut(`Exploration`)">Exploration<div><img src="icons/Spy.png" alt="n/a"></li>
+      </ul>
+    </span>
+    <span class="Traditional">
+        <h4>Expression</h4>
+        <ul>
+          <li onclick="hideAllBut(`Orator`)">Orator<div><img src="icons/scream-wail-shout-teal.png" alt="n/a"></li>
+          <li onclick="hideAllBut(`Performer`)">Performer<div><img src="icons/drum-snare-white.png" alt="n/a"></li>
+          <li onclick="hideAllBut(`Artist`)">Artist <div><img src="icons/brush-paint-pink.png" alt="n/a"> </li>
+        </ul>
+      </span>
+      <span class="Dark-Arts">
+        <h4>Agent</h4>
+        <ul>
+          <li onclick="hideAllBut(`Commander`)">Commander<div><img src="icons/StayofExecution.png" alt="n/a">  </li>
+          <li onclick="hideAllBut(`Stealth`)">Stealth<div><img src="icons/SupriseAttack.png" alt="n/a"></li>
+          <li onclick="hideAllBut(`Poisoner`)">Poisoner<div><img src="icons/PlagueBarrel.png" alt="n/a"></li>
+        </ul>
+      </span>
+  </div>
+<div id="TreeAndSideBar">
+  <span id="Illusionist" class="atree">
+    <div class="SkillRow row1">
+        <span id="ilAttr1" class="Skill orclr aAttr1"><img src="icons/AncestralAwakening.png" alt="Illusionist"></span>
+        <span id="ilAttr2" class="Skill orclr aAttr2"><img src="icons/AncestralAwakening.png" alt="Illusionist"></span>
+    </div>
+    <div class="ConnectorRow crow1">
+        <span id="ilAttr1-Attr3" class="Connector aAttr1-Attr3"></span>
+        <span id="ilAttr1-Attr4" class="Connector aAttr1-Attr4"></span>
+        <span id="ilAttr2-Attr7" class="Connector aAttr2-Attr7"></span>
+        <span id="ilAttr2-Attr8" class="Connector aAttr2-Attr8"></span>
+    </div>
+    <div class="SkillRow row2">
+      <span id="ilAttr3" class="Skill orclr aAttr3"><img src="icons/AncestralAwakening.png" alt="Illusionist"></span>
+      <span id="ilAttr4" class="Skill orclr aAttr4"><img src="icons/AncestralAwakening.png" alt="Illusionist"></span>
+      <span id="ilAttr7" class="Skill orclr aAttr7"><img src="icons/AncestralAwakening.png" alt="Illusionist"></span>
+      <span id="ilAttr8" class="Skill orclr aAttr8"><img src="icons/AncestralAwakening.png" alt="Illusionist"></span>
+    </div>
+    <div class="ConnectorRow crow2">
+        <span id="ilAttr3-Attr5" class="Connector aAttr3-Attr5"></span>
+        <span id="ilAttr4-Attr5" class="Connector aAttr4-Attr5"></span>
+        <span id="ilAttr7-Attr9" class="Connector aAttr7-Attr9"></span>
+        <span id="ilAttr8-Attr9" class="Connector aAttr8-Attr9"></span>
+    </div>
+    <div class="SkillRow row3">
+      <span id="ilAttr5" class="Skill orclr aAttr5"><img src="icons/AncestralAwakening.png" alt="Illusionist"></span>
+      <span id="ilAttr9" class="Skill orclr aAttr9"><img src="icons/AncestralAwakening.png" alt="Illusionist"></span>
+    </div>
+    <div class="ConnectorRow crow3">
+      <span id="ilAttr5-Attr6" class="Connector aAttr5-Attr6"></span>
+    </div>
+    <div class="SkillRow row4">
+      <span id="ilAttr6" class="Skill aAttr6"><img src="icons/AncestralAwakening.png" alt="Illusionist"></span>
+    </div>
+  </span>
+  <span id="Elementomancy" class="btree">
+    <img class="professor" src="prof/webp/Uvilda-Dean-of-Perfection-Strixhaven-MtG-Art.webp" alt="Uvilda">
+    <div class="SkillRow row1">
+      <span id="elAttr1" class="Skill ywclr bAttr1"><img src="icons/Fire.png" alt="Elementomancy"></span>
+    </div>
+    <div class="ConnectorRow crow1">
+      <span id="elAttr1-Attr2" class="Connector bAttr1-Attr2"></span>
+      <span id="elAttr1-Attr3" class="Connector bAttr1-Attr3"></span>
+      <span id="elAttr1-Attr4" class="Connector bAttr1-Attr4"></span>
+    </div>
+    <div class="SkillRow row2">
+      <span id="elAttr2" class="Skill ywclr bAttr2"><img src="icons/Fire.png" alt="Elementomancy"></span>
+      <span id="elAttr3" class="Skill ywclr bAttr3"><img src="icons/Fire.png" alt="Elementomancy"></span>
+      <span id="elAttr4" class="Skill ywclr bAttr4"><img src="icons/Fire.png" alt="Elementomancy"></span>
+    </div>
+    <div class="ConnectorRow crow1">
+      <span id="elAttr2-Attr5" class="Connector bAttr2-Attr5"></span>
+      <span id="elAttr3-Attr6" class="Connector bAttr3-Attr6"></span>
+      <span id="elAttr4-Attr6" class="Connector bAttr4-Attr6"></span>
+    </div>
+    <div class="SkillRow row3">
+      <span id="elAttr5" class="Skill ywclr bAttr5"><img src="icons/Fire.png" alt="Elementomancy"></span>
+      <span id="elAttr6" class="Skill ywclr bAttr6"><img src="icons/Fire.png" alt="Elementomancy"></span>
+    </div>
+    <div class="ConnectorRow crow1">
+      <span id="elAttr3-Attr7" class="Connector bAttr3-Attr7"></span>
+      <span id="elAttr6-Attr8" class="Connector bAttr6-Attr8"></span>
+    </div>
+    <div class="SkillRow row4">
+      <span id="elAttr7" class="Skill ywclr bAttr7"><img src="icons/Fire.png" alt="Elementomancy"></span>
+      <span id="elAttr8" class="Skill ywclr bAttr8"><img src="icons/Fire.png" alt="Elementomancy"></span>
+    </div>
+    <div class="ConnectorRow crow1">
+      <span id="elAttr7-Attr9" class="Connector bAttr7-Attr9"></span>
+      <span id="elAttr8-Attr9" class="Connector bAttr8-Attr9"></span>
+    </div>
+    <div class="SkillRow row5">
+      <span id="elAttr9" class="Skill bAttr9"><img src="icons/Fire.png" alt="Elementomancy"></span>
+    </div>
+  </span>
+  <span id="Mathomancy" class="ctree">
+    <img class="professor" src="prof/webp/Imbraham-Dean-of-Theory-Strixhaven-MtG-Art.webp" alt="Imbraham">
+    <div class="SkillRow row1">
+        <span id="mtAttr1" class="Skill orclr cAttr1"><img src="icons/ChargePositive.png" alt="Mathomancy"></span>
+    </div>
+    <span class="ConnectorRow crow1">
+      <span id="mtAttr1-Attr3" class="Connector cAttr1-Attr3"></span>
+    </span>
+    <div class="SkillRow row2">
+      <span id="mtAttr2" class="Skill orclr cAttr2"><img src="icons/ChargePositive.png" alt="Mathomancy"></span>
+      <span id="mtAttr3" class="Skill orclr cAttr3"><img src="icons/ChargePositive.png" alt="Mathomancy"></span>
+    </div>
+    <span class="ConnectorRow crow1">
+      <span id="mtAttr2-Attr4" class="Connector cAttr2-Attr4"></span>
+      <span id="mtAttr3-Attr4" class="Connector cAttr3-Attr4"></span>
+    </span>
+    <div class="SkillRow row3">
+      <span id="mtAttr4" class="Skill orclr cAttr4"><img src="icons/ChargePositive.png" alt="Mathomancy"></span>
+      <span id="mtAttr5" class="Skill orclr cAttr5"><img src="icons/ChargePositive.png" alt="Mathomancy"></span>
+    </div>
+    <span class="ConnectorRow crow1">
+      <span id="mtAttr4-Attr6" class="Connector cAttr4-Attr6"></span>
+      <span id="mtAttr3-Attr5" class="Connector cAttr3-Attr5"></span>
+    </span>
+    <div class="SkillRow row4">
+      <span id="mtAttr6" class="Skill orclr cAttr6"><img src="icons/ChargePositive.png" alt="Mathomancy"></span>
+      <span id="mtAttr7" class="Skill orclr cAttr7"><img src="icons/ChargePositive.png" alt="Mathomancy"></span>
+    </div>
+    <span class="ConnectorRow crow1">
+      <span id="mtAttr6-Attr8" class="Connector cAttr6-Attr8"></span>
+      <span id="mtAttr6-Attr9" class="Connector cAttr6-Attr9"></span>
+    </span>
+    <div class="SkillRow row5">
+      <span id="mtAttr8" class="Skill orclr cAttr8"><img src="icons/ChargePositive.png" alt="Mathomancy"></span>
+      <span id="mtAttr9" class="Skill orclr cAttr9"><img src="icons/ChargePositive.png" alt="Mathomancy"></span>
+    </div>
+    <span class="ConnectorRow crow1">
+      <span id="mtAttr5-Attr7" class="Connector cAttr5-Attr7"></span>
+      <span id="mtAttr7-Attr9" class="Connector cAttr7-Attr9"></span>
+    </span>
+  </span>
+  <span id="Archaeomancy" class="atree">
+    <img class="professor" src="prof/webp/AugustDeanOfOrder.webp" alt="Augusta">
+    <div class="SkillRow row1">
+        <span id="aoAttr1" class="Skill lbclr aAttr1"><img src="icons/parchment-secrets.png" alt="Archaeomancy"></span>
+        <span id="aoAttr2" class="Skill lbclr aAttr2"><img src="icons/parchment-secrets.png" alt="Archaeomancy"></span>
+    </div>
+    <div class="ConnectorRow crow1">
+        <span id="aoAttr1-Attr3" class="Connector aAttr1-Attr3"></span>
+        <span id="aoAttr1-Attr4" class="Connector aAttr1-Attr4"></span>
+        <span id="aoAttr2-Attr7" class="Connector aAttr2-Attr7"></span>
+        <span id="aoAttr2-Attr8" class="Connector aAttr2-Attr8"></span>
+    </div>
+    <div class="SkillRow row2">
+      <span id="aoAttr3" class="Skill lbclr aAttr3"><img src="icons/parchment-secrets.png" alt="Archaeomancy"></span>
+      <span id="aoAttr4" class="Skill lbclr aAttr4"><img src="icons/parchment-secrets.png" alt="Archaeomancy"></span>
+      <span id="aoAttr7" class="Skill lbclr aAttr7"><img src="icons/parchment-secrets.png" alt="Archaeomancy"></span>
+      <span id="aoAttr8" class="Skill lbclr aAttr8"><img src="icons/parchment-secrets.png" alt="Archaeomancy"></span>
+    </div>
+    <div class="ConnectorRow crow2">
+        <span id="aoAttr3-Attr5" class="Connector aAttr3-Attr5"></span>
+        <span id="aoAttr4-Attr5" class="Connector aAttr4-Attr5"></span>
+        <span id="aoAttr7-Attr9" class="Connector aAttr7-Attr9"></span>
+        <span id="aoAttr8-Attr9" class="Connector aAttr8-Attr9"></span>
+    </div>
+    <div class="SkillRow row3">
+      <span id="aoAttr5" class="Skill lbclr aAttr5"><img src="icons/parchment-secrets.png" alt="Archaeomancy"></span>
+      <span id="aoAttr9" class="Skill lbclr aAttr9"><img src="icons/parchment-secrets.png" alt="Archaeomancy"></span>
+    </div>
+    <div class="ConnectorRow crow3">
+      <span id="aoAttr5-Attr6" class="Connector aAttr5-Attr6"></span>
+    </div>
+    <div class="SkillRow row4">
+      <span id="aoAttr6" class="Skill lbclr aAttr6"><img src="icons/parchment-secrets.png" alt="Archaeomancy"></span>
+    </div>
+  </span>
+  <span id="Protector" class="ctree">
+    <img class="professor" src="prof/webp/Imbraham-Dean-of-Theory-Strixhaven-MtG-Art.webp" alt="Imbraham">
+    <div class="SkillRow row1">
+        <span id="prAttr1" class="Skill owclr cAttr1"><img src="icons/AvengersShield.png" alt="Protector"></span>
+    </div>
+    <span class="ConnectorRow crow1">
+      <span id="prAttr1-Attr3" class="Connector cAttr1-Attr3"></span>
+    </span>
+    <div class="SkillRow row2">
+      <span id="prAttr2" class="Skill owclr cAttr2"><img src="icons/AvengersShield.png" alt="Protector"></span>
+      <span id="prAttr3" class="Skill owclr cAttr3"><img src="icons/AvengersShield.png" alt="Protector"></span>
+    </div>
+    <span class="ConnectorRow crow1">
+      <span id="prAttr2-Attr4" class="Connector cAttr2-Attr4"></span>
+      <span id="prAttr3-Attr4" class="Connector cAttr3-Attr4"></span>
+    </span>
+    <div class="SkillRow row3">
+      <span id="prAttr4" class="Skill owclr cAttr4"><img src="icons/AvengersShield.png" alt="Protector"></span>
+      <span id="prAttr5" class="Skill owclr cAttr5"><img src="icons/AvengersShield.png" alt="Protector"></span>
+    </div>
+    <span class="ConnectorRow crow1">
+      <span id="prAttr4-Attr6" class="Connector cAttr4-Attr6"></span>
+      <span id="prAttr3-Attr5" class="Connector cAttr3-Attr5"></span>
+    </span>
+    <div class="SkillRow row4">
+      <span id="prAttr6" class="Skill owclr cAttr6"><img src="icons/AvengersShield.png" alt="Protector"></span>
+      <span id="prAttr7" class="Skill owclr cAttr7"><img src="icons/AvengersShield.png" alt="Protector"></span>
+    </div>
+    <span class="ConnectorRow crow1">
+      <span id="prAttr6-Attr8" class="Connector cAttr6-Attr8"></span>
+      <span id="prAttr6-Attr9" class="Connector cAttr6-Attr9"></span>
+    </span>
+    <div class="SkillRow row5">
+      <span id="prAttr8" class="Skill owclr cAttr8"><img src="icons/AvengersShield.png" alt="Protector"></span>
+      <span id="prAttr9" class="Skill owclr cAttr9"><img src="icons/AvengersShield.png" alt="Protector"></span>
+    </div>
+    <span class="ConnectorRow crow1">
+      <span id="prAttr5-Attr7" class="Connector cAttr5-Attr7"></span>
+      <span id="prAttr7-Attr9" class="Connector cAttr7-Attr9"></span>
+    </span>
+  </span>
+  <span id="Evoker" class="btree">
+    <img class="professor" src="prof/webp/Uvilda-Dean-of-Perfection-Strixhaven-MtG-Art.webp" alt="Uvilda">
+    <div class="SkillRow row1">
+      <span id="evAttr1" class="Skill orclr bAttr1" ><img src="icons/LightningOverload.png" alt="Evoker"></span>
+    </div>
+    <div class="ConnectorRow crow1">
+      <span id="evAttr1-Attr2" class="Connector bAttr1-Attr2"></span>
+      <span id="evAttr1-Attr3" class="Connector bAttr1-Attr3"></span>
+      <span id="evAttr1-Attr4" class="Connector bAttr1-Attr4"></span>
+    </div>
+    <div class="SkillRow row2">
+      <span id="evAttr2" class="Skill orclr bAttr2"><img src="icons/LightningOverload.png" alt="Evoker"></span>
+      <span id="evAttr3" class="Skill orclr bAttr3"><img src="icons/LightningOverload.png" alt="Evoker"></span>
+      <span id="evAttr4" class="Skill orclr bAttr4"><img src="icons/LightningOverload.png" alt="Evoker"></span>
+    </div>
+    <div class="ConnectorRow crow1">
+      <span id="evAttr2-Attr5" class="Connector bAttr2-Attr5"></span>
+      <span id="evAttr3-Attr6" class="Connector bAttr3-Attr6"></span>
+      <span id="evAttr4-Attr6" class="Connector bAttr4-Attr6"></span>
+    </div>
+    <div class="SkillRow row3">
+      <span id="evAttr5" class="Skill orclr bAttr5"><img src="icons/LightningOverload.png" alt="Evoker"></span>
+      <span id="evAttr6" class="Skill orclr bAttr6"><img src="icons/LightningOverload.png" alt="Evoker"></span>
+    </div>
+    <div class="ConnectorRow crow1">
+      <span id="evAttr3-Attr7" class="Connector bAttr3-Attr7"></span>
+      <span id="evAttr6-Attr8" class="Connector bAttr6-Attr8"></span>
+    </div>
+    <div class="SkillRow row4">
+      <span id="evAttr7" class="Skill orclr bAttr7"><img src="icons/LightningOverload.png" alt="Evoker"></span>
+      <span id="evAttr8" class="Skill orclr bAttr8"><img src="icons/LightningOverload.png" alt="Evoker"></span>
+    </div>
+    <div class="ConnectorRow crow1">
+      <span id="evAttr7-Attr9" class="Connector bAttr7-Attr9"></span>
+      <span id="evAttr8-Attr9" class="Connector bAttr8-Attr9"></span>
+    </div>
+    <div class="SkillRow row5">
+      <span id="evAttr9" class="Skill orclr bAttr9"><img src="icons/LightningOverload.png" alt="Evoker"></span>
+    </div>
+  </span>
+  <span id="Necromancy" class="atree">
+    <img class="professor" src="prof/Professor-Onyx-Variant-Strixhaven-MtG-Art.jpg" alt="Kianne">
+    <div class="SkillRow row1">
+        <span id="nmAttr1" class="Skill ngclr aAttr1"><img src="icons/DevouringPlague.png" alt="necromancy"></span>
+        <span id="nmAttr2" class="Skill ngclr  aAttr2"><img src="icons/DevouringPlague.png" alt="necromancy"></span>
+    </div>
+    <div class="ConnectorRow crow1">
+        <span id="nmAttr1-Attr3" class="Connector aAttr1-Attr3"></span>
+        <span id="nmAttr1-Attr4" class="Connector aAttr1-Attr4"></span>
+        <span id="nmAttr2-Attr7" class="Connector aAttr2-Attr7"></span>
+        <span id="nmAttr2-Attr8" class="Connector aAttr2-Attr8"></span>
+    </div>
+    <div class="SkillRow row2">
+      <span id="nmAttr3" class="Skill ngclr  aAttr3"><img  src="icons/DevouringPlague.png" alt="necromancy"></span>
+      <span id="nmAttr4" class="Skill ngclr  aAttr4"><img  src="icons/DevouringPlague.png" alt="necromancy"></span>
+      <span id="nmAttr7" class="Skill ngclr  aAttr7"><img  src="icons/DevouringPlague.png" alt="necromancy"></span>
+      <span id="nmAttr8" class="Skill ngclr  aAttr8"><img  src="icons/DevouringPlague.png" alt="necromancy"></span>
+    </div>
+    <div class="ConnectorRow crow2">
+        <span id="nmAttr3-Attr5" class="Connector aAttr3-Attr5"></span>
+        <span id="nmAttr4-Attr5" class="Connector aAttr4-Attr5"></span>
+        <span id="nmAttr7-Attr9" class="Connector aAttr7-Attr9"></span>
+        <span id="nmAttr8-Attr9" class="Connector aAttr8-Attr9"></span>
+    </div>
+    <div class="SkillRow row3">
+      <span id="nmAttr5" class="Skill ngclr  aAttr5"><img  src="icons/DevouringPlague.png" alt="necromancy"></span>
+      <span id="nmAttr9" class="Skill ngclr  aAttr9"><img  src="icons/DevouringPlague.png" alt="necromancy"></span>
+    </div>
+    <div class="ConnectorRow crow3">
+      <span id="nmAttr5-Attr6" class="Connector aAttr5-Attr6"></span>
+    </div>
+    <div class="SkillRow row4">
+      <span id="nmAttr6" class="Skill ngclr  aAttr6"><img  src="icons/DevouringPlague.png" alt="necromancy"></span>
+    </div>
+  </span>
+  <span id="Inkomancy" class="btree">
+    <img class="professor" src="prof/webp/Professor-Onyx-Strixhaven-MtG-Art.webp" alt="Liliana">
+    <div class="SkillRow row1">
+      <span id="ioAttr1" class="Skill svclr bAttr1"><img  src="icons/ink-quill-red.png" alt="inkomancy"></span>
+    </div>
+    <div class="ConnectorRow crow1">
+      <span id="ioAttr1-Attr2" class="Connector bAttr1-Attr2"></span>
+      <span id="ioAttr1-Attr3" class="Connector bAttr1-Attr3"></span>
+      <span id="ioAttr1-Attr4" class="Connector bAttr1-Attr4"></span>
+    </div>
+    <div class="SkillRow row2">
+      <span id="ioAttr2" class="Skill svclr bAttr2"><img  src="icons/ink-quill-red.png" alt="inkomancy"></span>
+      <span id="ioAttr3" class="Skill svclr bAttr3"><img  src="icons/ink-quill-red.png" alt="inkomancy"></span>
+      <span id="ioAttr4" class="Skill svclr bAttr4"><img  src="icons/ink-quill-red.png" alt="inkomancy"></span>
+    </div>
+    <div class="ConnectorRow crow1">
+      <span id="ioAttr2-Attr5" class="Connector bAttr2-Attr5"></span>
+      <span id="ioAttr3-Attr6" class="Connector bAttr3-Attr6"></span>
+      <span id="ioAttr4-Attr6" class="Connector bAttr4-Attr6"></span>
+    </div>
+    <div class="SkillRow row3">
+      <span id="ioAttr5" class="Skill svclr bAttr5"><img  src="icons/ink-quill-red.png" alt="inkomancy"></span>
+      <span id="ioAttr6" class="Skill svclr bAttr6"><img  src="icons/ink-quill-red.png" alt="inkomancy"></span>
+    </div>
+    <div class="ConnectorRow crow1">
+      <span id="ioAttr3-Attr7" class="Connector bAttr3-Attr7"></span>
+      <span id="ioAttr6-Attr8" class="Connector bAttr6-Attr8"></span>
+    </div>
+    <div class="SkillRow row4">
+      <span id="ioAttr7" class="Skill svclr bAttr7"><img  src="icons/ink-quill-red.png" alt="inkomancy"></span>
+      <span id="ioAttr8" class="Skill svclr bAttr8"><img  src="icons/ink-quill-red.png" alt="inkomancy"></span>
+    </div>
+    <div class="ConnectorRow crow1">
+      <span id="ioAttr7-Attr9" class="Connector bAttr7-Attr9"></span>
+      <span id="ioAttr8-Attr9" class="Connector bAttr8-Attr9"></span>
+    </div>
+    <div class="SkillRow row5">
+      <span id="ioAttr9" class="Skill svclr bAttr9"><img  src="icons/ink-quill-red.png" alt="inkomancy"></span>
+    </div>
+  </span>
+  <span id="Plantomancy" class="ctree">
+    <img class="professor" src="prof/webp/2Kianne-Dean-of-Substance-Strixhaven-MtG-Art.webp" alt="Kianne">
+    <div class="SkillRow row1">
+        <span id="poAttr1" class="Skill dgclr cAttr1"><img  src="icons/lily-pink.png" alt="Plantomancy"></span>
+    </div>
+    <span class="ConnectorRow crow1">
+      <span id="poAttr1-Attr3" class="Connector cAttr1-Attr3"></span>
+    </span>
+    <div class="SkillRow row2">
+      <span id="poAttr2" class="Skill dgclr cAttr2"><img  src="icons/lily-pink.png" alt="Plantomancy"></span>
+      <span id="poAttr3" class="Skill dgclr cAttr3"><img  src="icons/lily-pink.png" alt="Plantomancy"></span>
+    </div>
+    <span class="ConnectorRow crow1">
+      <span id="poAttr2-Attr4" class="Connector cAttr2-Attr4"></span>
+      <span id="poAttr3-Attr4" class="Connector cAttr3-Attr4"></span>
+    </span>
+    <div class="SkillRow row3">
+      <span id="poAttr4" class="Skill dgclr cAttr4"><img  src="icons/lily-pink.png" alt="Plantomancy"></span>
+      <span id="poAttr5" class="Skill dgclr cAttr5"><img  src="icons/lily-pink.png" alt="Plantomancy"></span>
+    </div>
+    <span class="ConnectorRow crow1">
+      <span id="poAttr4-Attr6" class="Connector cAttr4-Attr6"></span>
+      <span id="poAttr3-Attr5" class="Connector cAttr3-Attr5"></span>
+    </span>
+    <div class="SkillRow row4">
+      <span id="poAttr6" class="Skill dgclr cAttr6"><img  src="icons/lily-pink.png" alt="Plantomancy"></span>
+      <span id="poAttr7" class="Skill dgclr cAttr7"><img  src="icons/lily-pink.png" alt="Plantomancy"></span>
+    </div>
+    <span class="ConnectorRow crow1">
+      <span id="poAttr6-Attr8" class="Connector cAttr6-Attr8"></span>
+      <span id="poAttr6-Attr9" class="Connector cAttr6-Attr9"></span>
+    </span>
+    <div class="SkillRow row5">
+      <span id="poAttr8" class="Skill dgclr cAttr8"><img  src="icons/lily-pink.png" alt="Plantomancy"></span>
+      <span id="poAttr9" class="Skill dgclr cAttr9"><img  src="icons/lily-pink.png" alt="Plantomancy"></span>
+    </div>
+    <span class="ConnectorRow crow1">
+      <span id="poAttr5-Attr7" class="Connector cAttr5-Attr7"></span>
+      <span id="poAttr7-Attr9" class="Connector cAttr7-Attr9"></span>
+    </span>
+  </span>
+  <span id="Magehunter" class="btree">
+    <div class="SkillRow row1">
+      <span id="mhAttr1" class="Skill ywclr bAttr1"><img  src="icons/ThrilloftheHunt.png" alt="Magehunter"></span>
+    </div>
+    <div class="ConnectorRow crow1">
+      <span id="mhAttr1-Attr2" class="Connector bAttr1-Attr2"></span>
+      <span id="mhAttr1-Attr3" class="Connector bAttr1-Attr3"></span>
+      <span id="mhAttr1-Attr4" class="Connector bAttr1-Attr4"></span>
+    </div>
+    <div class="SkillRow row2">
+      <span id="mhAttr2" class="Skill ywclr bAttr2"><img  src="icons/ThrilloftheHunt.png" alt="Magehunter"></span>
+      <span id="mhAttr3" class="Skill ywclr bAttr3"><img  src="icons/ThrilloftheHunt.png" alt="Magehunter"></span>
+      <span id="mhAttr4" class="Skill ywclr bAttr4"><img  src="icons/ThrilloftheHunt.png" alt="Magehunter"></span>
+    </div>
+    <div class="ConnectorRow crow1">
+      <span id="mhAttr2-Attr5" class="Connector bAttr2-Attr5"></span>
+      <span id="mhAttr3-Attr6" class="Connector bAttr3-Attr6"></span>
+      <span id="mhAttr4-Attr6" class="Connector bAttr4-Attr6"></span>
+    </div>
+    <div class="SkillRow row3">
+      <span id="mhAttr5" class="Skill ywclr bAttr5"><img  src="icons/ThrilloftheHunt.png" alt="Magehunter"></span>
+      <span id="mhAttr6" class="Skill ywclr bAttr6"><img  src="icons/ThrilloftheHunt.png" alt="Magehunter"></span>
+    </div>
+    <div class="ConnectorRow crow1">
+      <span id="mhAttr3-Attr7" class="Connector bAttr3-Attr7"></span>
+      <span id="mhAttr6-Attr8" class="Connector bAttr6-Attr8"></span>
+    </div>
+    <div class="SkillRow row4">
+      <span id="mhAttr7" class="Skill ywclr bAttr7"><img  src="icons/ThrilloftheHunt.png" alt="Magehunter"></span>
+      <span id="mhAttr8" class="Skill ywclr bAttr8"><img  src="icons/ThrilloftheHunt.png" alt="Magehunter"></span>
+    </div>
+    <div class="ConnectorRow crow1">
+      <span id="mhAttr7-Attr9" class="Connector bAttr7-Attr9"></span>
+      <span id="mhAttr8-Attr9" class="Connector bAttr8-Attr9"></span>
+    </div>
+    <div class="SkillRow row5">
+      <span id="mhAttr9" class="Skill ywclr bAttr9"><img  src="icons/ThrilloftheHunt.png" alt="Magehunter"></span>
+    </div>
+  </span>
+  <span id="Runner" class="atree">
+    <div class="SkillRow row1">
+        <span id="ruAttr1" class="Skill rdclr aAttr1"><img  src="icons/FleetFooted.png" alt="Runner"></span>
+        <span id="ruAttr2" class="Skill rdclr aAttr2"><img  src="icons/FleetFooted.png" alt="Runner"></span>
+    </div>
+    <div class="ConnectorRow crow1">
+        <span id="ruAttr1-Attr3" class="Connector aAttr1-Attr3"></span>
+        <span id="ruAttr1-Attr4" class="Connector aAttr1-Attr4"></span>
+        <span id="ruAttr2-Attr7" class="Connector aAttr2-Attr7"></span>
+        <span id="ruAttr2-Attr8" class="Connector aAttr2-Attr8"></span>
+    </div>
+    <div class="SkillRow row2">
+      <span id="ruAttr3" class="Skill rdclr aAttr3"><img  src="icons/FleetFooted.png" alt="Runner"></span>
+      <span id="ruAttr4" class="Skill rdclr aAttr4"><img  src="icons/FleetFooted.png" alt="Runner"></span>
+      <span id="ruAttr7" class="Skill rdclr aAttr7"><img  src="icons/FleetFooted.png" alt="Runner"></span>
+      <span id="ruAttr8" class="Skill rdclr aAttr8"><img  src="icons/FleetFooted.png" alt="Runner"></span>
+    </div>
+    <div class="ConnectorRow crow2">
+        <span id="ruAttr3-Attr5" class="Connector aAttr3-Attr5"></span>
+        <span id="ruAttr4-Attr5" class="Connector aAttr4-Attr5"></span>
+        <span id="ruAttr7-Attr9" class="Connector aAttr7-Attr9"></span>
+        <span id="ruAttr8-Attr9" class="Connector aAttr8-Attr9"></span>
+    </div>
+    <div class="SkillRow row3">
+      <span id="ruAttr5" class="Skill rdclr aAttr5"><img  src="icons/FleetFooted.png" alt="Runner"></span>
+      <span id="ruAttr9" class="Skill rdclr aAttr9"><img  src="icons/FleetFooted.png" alt="Runner"></span>
+    </div>
+    <div class="ConnectorRow crow3">
+      <span id="ruAttr5-Attr6" class="Connector aAttr5-Attr6"></span>
+    </div>
+    <div class="SkillRow row4">
+      <span id="ruAttr6" class="Skill rdclr aAttr6"><img  src="icons/FleetFooted.png" alt="Runner"></span>
+    </div>
+  </span>
+  <span id="Spellsword" class="ctree">
+    <img class="prof2" src="https://pbs.twimg.com/media/ExgI1gWXMAUJi7q.jpg" alt="Nassari">
+    <div class="SkillRow row1">
+        <span id="ssAttr1" class="Skill lbclr cAttr1"><img  src="icons/DualWieldSpecialization.png" alt="Spellsword"></span>
+    </div>
+    <span class="ConnectorRow crow1">
+      <span id="ssAttr1-Attr3" class="Connector cAttr1-Attr3"></span>
+    </span>
+    <div class="SkillRow row2">
+      <span id="ssAttr2" class="Skill lbclr cAttr2"><img  src="icons/DualWieldSpecialization.png" alt="Spellsword"></span>
+      <span id="ssAttr3" class="Skill lbclr cAttr3"><img  src="icons/DualWieldSpecialization.png" alt="Spellsword"></span>
+    </div>
+    <span class="ConnectorRow crow1">
+      <span id="ssAttr2-Attr4" class="Connector cAttr2-Attr4"></span>
+      <span id="ssAttr3-Attr4" class="Connector cAttr3-Attr4"></span>
+    </span>
+    <div class="SkillRow row3">
+      <span id="ssAttr4" class="Skill lbclr cAttr4"><img  src="icons/DualWieldSpecialization.png" alt="Spellsword"></span>
+      <span id="ssAttr5" class="Skill lbclr cAttr5"><img  src="icons/DualWieldSpecialization.png" alt="Spellsword"></span>
+    </div>
+    <span class="ConnectorRow crow1">
+      <span id="ssAttr4-Attr6" class="Connector cAttr4-Attr6"></span>
+      <span id="ssAttr3-Attr5" class="Connector cAttr3-Attr5"></span>
+    </span>
+    <div class="SkillRow row4">
+      <span id="ssAttr6" class="Skill lbclr cAttr6"><img  src="icons/DualWieldSpecialization.png" alt="Spellsword"></span>
+      <span id="ssAttr7" class="Skill lbclr cAttr7"><img  src="icons/DualWieldSpecialization.png" alt="Spellsword"></span>
+    </div>
+    <span class="ConnectorRow crow1">
+      <span id="ssAttr6-Attr8" class="Connector cAttr6-Attr8"></span>
+      <span id="ssAttr6-Attr9" class="Connector cAttr6-Attr9"></span>
+    </span>
+    <div class="SkillRow row5">
+      <span id="ssAttr8" class="Skill lbclr cAttr8"><img  src="icons/DualWieldSpecialization.png" alt="Spellsword"></span>
+      <span id="ssAttr9" class="Skill lbclr cAttr9"><img  src="icons/DualWieldSpecialization.png" alt="Spellsword"></span>
+    </div>
+    <span class="ConnectorRow crow1">
+      <span id="ssAttr5-Attr7" class="Connector cAttr5-Attr7"></span>
+      <span id="ssAttr7-Attr9" class="Connector cAttr7-Attr9"></span>
+    </span>
+  </span>
+  <span id="Guard" class="atree">
+    <div class="SkillRow row1">
+        <span id="guAttr1" class="Skill ngclr aAttr1"><img  src="icons/Defend.png" alt="Guard"></span>
+        <span id="guAttr2" class="Skill ngclr aAttr2"><img  src="icons/Defend.png" alt="Guard"></span>
+    </div>
+    <div class="ConnectorRow crow1">
+        <span id="guAttr1-Attr3" class="Connector aAttr1-Attr3"></span>
+        <span id="guAttr1-Attr4" class="Connector aAttr1-Attr4"></span>
+        <span id="guAttr2-Attr7" class="Connector aAttr2-Attr7"></span>
+        <span id="guAttr2-Attr8" class="Connector aAttr2-Attr8"></span>
+    </div>
+    <div class="SkillRow row2">
+      <span id="guAttr3" class="Skill ngclr aAttr3"><img  src="icons/Defend.png" alt="Guard"></span>
+      <span id="guAttr4" class="Skill ngclr aAttr4"><img  src="icons/Defend.png" alt="Guard"></span>
+      <span id="guAttr7" class="Skill ngclr aAttr7"><img  src="icons/Defend.png" alt="Guard"></span>
+      <span id="guAttr8" class="Skill ngclr aAttr8"><img  src="icons/Defend.png" alt="Guard"></span>
+    </div>
+    <div class="ConnectorRow crow2">
+        <span id="guAttr3-Attr5" class="Connector aAttr3-Attr5"></span>
+        <span id="guAttr4-Attr5" class="Connector aAttr4-Attr5"></span>
+        <span id="guAttr7-Attr9" class="Connector aAttr7-Attr9"></span>
+        <span id="guAttr8-Attr9" class="Connector aAttr8-Attr9"></span>
+    </div>
+    <div class="SkillRow row3">
+      <span id="guAttr5" class="Skill ngclr aAttr5"><img  src="icons/Defend.png" alt="Guard"></span>
+      <span id="guAttr9" class="Skill ngclr aAttr9"><img  src="icons/Defend.png" alt="Guard"></span>
+    </div>
+    <div class="ConnectorRow crow3">
+      <span id="guAttr5-Attr6" class="Connector aAttr5-Attr6"></span>
+    </div>
+    <div class="SkillRow row4">
+      <span id="guAttr6" class="Skill ngclr aAttr6"><img  src="icons/Defend.png" alt="Guard"></span>
+    </div>
+  </span>
+  <span id="Juggernaut" class="btree">
+    <img class="professor" src="https://www.cardkingdom.com/images/magic-the-gathering/art-series-strixhaven/plargg-dean-of-chaos-not-tournament-legal-46040-medium.jpg" alt="Plargg">
+    <div class="SkillRow row1">
+      <span id="juAttr1" class="Skill rdclr bAttr1"><img  src="icons/IntensifyRage.png" alt="Juggernaut"></span>
+    </div>
+    <div class="ConnectorRow crow1">
+      <span id="juAttr1-Attr2" class="Connector bAttr1-Attr2"></span>
+      <span id="juAttr1-Attr3" class="Connector bAttr1-Attr3"></span>
+      <span id="juAttr1-Attr4" class="Connector bAttr1-Attr4"></span>
+    </div>
+    <div class="SkillRow row2">
+      <span id="juAttr2" class="Skill rdclr bAttr2"><img  src="icons/IntensifyRage.png" alt="Juggernaut"></span>
+      <span id="juAttr3" class="Skill rdclr bAttr3"><img  src="icons/IntensifyRage.png" alt="Juggernaut"></span>
+      <span id="juAttr4" class="Skill rdclr bAttr4"><img  src="icons/IntensifyRage.png" alt="Juggernaut"></span>
+    </div>
+    <div class="ConnectorRow crow1">
+      <span id="juAttr2-Attr5" class="Connector bAttr2-Attr5"></span>
+      <span id="juAttr3-Attr6" class="Connector bAttr3-Attr6"></span>
+      <span id="juAttr4-Attr6" class="Connector bAttr4-Attr6"></span>
+    </div>
+    <div class="SkillRow row3">
+      <span id="juAttr5" class="Skill rdclr bAttr5"><img  src="icons/IntensifyRage.png" alt="Juggernaut"></span>
+      <span id="juAttr6" class="Skill rdclr bAttr6"><img  src="icons/IntensifyRage.png" alt="Juggernaut"></span>
+    </div>
+    <div class="ConnectorRow crow1">
+      <span id="juAttr3-Attr7" class="Connector bAttr3-Attr7"></span>
+      <span id="juAttr6-Attr8" class="Connector bAttr6-Attr8"></span>
+    </div>
+    <div class="SkillRow row4">
+      <span id="juAttr7" class="Skill rdclr bAttr7"><img  src="icons/IntensifyRage.png" alt="Juggernaut"></span>
+      <span id="juAttr8" class="Skill rdclr bAttr8"><img  src="icons/IntensifyRage.png" alt="Juggernaut"></span>
+    </div>
+    <div class="ConnectorRow crow1">
+      <span id="juAttr7-Attr9" class="Connector bAttr7-Attr9"></span>
+      <span id="juAttr8-Attr9" class="Connector bAttr8-Attr9"></span>
+    </div>
+    <div class="SkillRow row5">
+      <span id="juAttr9" class="Skill rdclr bAttr9"><img  src="icons/IntensifyRage.png" alt="Juggernaut"></span>
+    </div>
+  </span>
+  <span id="Auror" class="ctree">
+    <div class="SkillRow row1">
+        <span id="auAttr1" class="Skill ywclr cAttr1"><img  src="icons/INVISIBILITY.png" alt="Auror"></span>
+    </div>
+    <span class="ConnectorRow crow1">
+      <span id="auAttr1-Attr3" class="Connector cAttr1-Attr3"></span>
+    </span>
+    <div class="SkillRow row2">
+      <span id="auAttr2" class="Skill ywclr cAttr2"><img  src="icons/INVISIBILITY.png" alt="Auror"></span>
+      <span id="auAttr3" class="Skill ywclr cAttr3"><img  src="icons/INVISIBILITY.png" alt="Auror"></span>
+    </div>
+    <span class="ConnectorRow crow1">
+      <span id="auAttr2-Attr4" class="Connector cAttr2-Attr4"></span>
+      <span id="auAttr3-Attr4" class="Connector cAttr3-Attr4"></span>
+    </span>
+    <div class="SkillRow row3">
+      <span id="auAttr4" class="Skill ywclr cAttr4"><img  src="icons/INVISIBILITY.png" alt="Auror"></span>
+      <span id="auAttr5" class="Skill ywclr cAttr5"><img  src="icons/INVISIBILITY.png" alt="Auror"></span>
+    </div>
+    <span class="ConnectorRow crow1">
+      <span id="auAttr4-Attr6" class="Connector cAttr4-Attr6"></span>
+      <span id="auAttr3-Attr5" class="Connector cAttr3-Attr5"></span>
+    </span>
+    <div class="SkillRow row4">
+      <span id="auAttr6" class="Skill ywclr cAttr6"><img  src="icons/INVISIBILITY.png" alt="Auror"></span>
+      <span id="auAttr7" class="Skill ywclr cAttr7"><img  src="icons/INVISIBILITY.png" alt="Auror"></span>
+    </div>
+    <span class="ConnectorRow crow1">
+      <span id="auAttr6-Attr8" class="Connector cAttr6-Attr8"></span>
+      <span id="auAttr6-Attr9" class="Connector cAttr6-Attr9"></span>
+    </span>
+    <div class="SkillRow row5">
+      <span id="auAttr8" class="Skill ywclr cAttr8"><img  src="icons/INVISIBILITY.png" alt="Auror"></span>
+      <span id="auAttr9" class="Skill ywclr cAttr9"><img  src="icons/INVISIBILITY.png" alt="Auror"></span>
+    </div>
+    <span class="ConnectorRow crow1">
+      <span id="auAttr5-Attr7" class="Connector cAttr5-Attr7"></span>
+      <span id="auAttr7-Attr9" class="Connector cAttr7-Attr9"></span>
+    </span>
+  </span>
+  <span id="Archery" class="atree">
+    <div class="SkillRow row1">
+        <span id="acAttr1" class="Skill owclr aAttr1"><img  src="icons/FocusedAim.png" alt="Archery"></span>
+        <span id="acAttr2" class="Skill owclr aAttr2"><img  src="icons/FocusedAim.png" alt="Archery"></span>
+    </div>
+    <div class="ConnectorRow crow1">
+        <span id="acAttr1-Attr3" class="Connector aAttr1-Attr3"></span>
+        <span id="acAttr1-Attr4" class="Connector aAttr1-Attr4"></span>
+        <span id="acAttr2-Attr7" class="Connector aAttr2-Attr7"></span>
+        <span id="acAttr2-Attr8" class="Connector aAttr2-Attr8"></span>
+    </div>
+    <div class="SkillRow row2">
+      <span id="acAttr3" class="Skill owclr aAttr3"><img  src="icons/FocusedAim.png" alt="Archery"></span>
+      <span id="acAttr4" class="Skill owclr aAttr4"><img  src="icons/FocusedAim.png" alt="Archery"></span>
+      <span id="acAttr7" class="Skill owclr aAttr7"><img  src="icons/FocusedAim.png" alt="Archery"></span>
+      <span id="acAttr8" class="Skill owclr aAttr8"><img  src="icons/FocusedAim.png" alt="Archery"></span>
+    </div>
+    <div class="ConnectorRow crow2">
+        <span id="acAttr3-Attr5" class="Connector aAttr3-Attr5"></span>
+        <span id="acAttr4-Attr5" class="Connector aAttr4-Attr5"></span>
+        <span id="acAttr7-Attr9" class="Connector aAttr7-Attr9"></span>
+        <span id="acAttr8-Attr9" class="Connector aAttr8-Attr9"></span>
+    </div>
+    <div class="SkillRow row3">
+      <span id="acAttr5" class="Skill owclr aAttr5"><img  src="icons/FocusedAim.png" alt="Archery"></span>
+      <span id="acAttr9" class="Skill owclr aAttr9"><img  src="icons/FocusedAim.png" alt="Archery"></span>
+    </div>
+    <div class="ConnectorRow crow3">
+      <span id="acAttr5-Attr6" class="Connector aAttr5-Attr6"></span>
+    </div>
+    <div class="SkillRow row4">
+      <span id="acAttr6" class="Skill owclr aAttr6"><img  src="icons/FocusedAim.png" alt="Archery"></span>
+    </div>
+  </span>
+  <span id="Duelist" class="ctree">
+    <img class="professor" src="https://assets.echomtg.com/magic/cards/cropped/125522.hq.jpg" alt="Plargg">
+    <div class="SkillRow row1">
+        <span id="duAttr1" class="Skill ywclr cAttr1"><img  src="icons/Parry.png" alt="Duelist"></span>
+    </div>
+    <span class="ConnectorRow crow1">
+      <span id="duAttr1-Attr3" class="Connector cAttr1-Attr3"></span>
+    </span>
+    <div class="SkillRow row2">
+      <span id="duAttr2" class="Skill ywclr cAttr2"><img  src="icons/Parry.png" alt="Duelist"></span>
+      <span id="duAttr3" class="Skill ywclr cAttr3"><img  src="icons/Parry.png" alt="Duelist"></span>
+    </div>
+    <span class="ConnectorRow crow1">
+      <span id="duAttr2-Attr4" class="Connector cAttr2-Attr4"></span>
+      <span id="duAttr3-Attr4" class="Connector cAttr3-Attr4"></span>
+    </span>
+    <div class="SkillRow row3">
+      <span id="duAttr4" class="Skill ywclr cAttr4"><img  src="icons/Parry.png" alt="Duelist"></span>
+      <span id="duAttr5" class="Skill ywclr cAttr5"><img  src="icons/Parry.png" alt="Duelist"></span>
+    </div>
+    <span class="ConnectorRow crow1">
+      <span id="duAttr4-Attr6" class="Connector cAttr4-Attr6"></span>
+      <span id="duAttr3-Attr5" class="Connector cAttr3-Attr5"></span>
+    </span>
+    <div class="SkillRow row4">
+      <span id="duAttr6" class="Skill ywclr cAttr6"><img  src="icons/Parry.png" alt="Duelist"></span>
+      <span id="duAttr7" class="Skill ywclr cAttr7"><img  src="icons/Parry.png" alt="Duelist"></span>
+    </div>
+    <span class="ConnectorRow crow1">
+      <span id="duAttr6-Attr8" class="Connector cAttr6-Attr8"></span>
+      <span id="duAttr6-Attr9" class="Connector cAttr6-Attr9"></span>
+    </span>
+    <div class="SkillRow row5">
+      <span id="duAttr8" class="Skill ywclr cAttr8"><img  src="icons/Parry.png" alt="Duelist"></span>
+      <span id="duAttr9" class="Skill ywclr cAttr9"><img  src="icons/Parry.png" alt="Duelist"></span>
+    </div>
+    <span class="ConnectorRow crow1">
+      <span id="duAttr5-Attr7" class="Connector cAttr5-Attr7"></span>
+      <span id="duAttr7-Attr9" class="Connector cAttr7-Attr9"></span>
+    </span>
+  </span>
+  <span id="Tactician" class="btree">
+    <div class="SkillRow row1">
+      <span id="taAttr1" class="Skill rdclr bAttr1"><img  src="icons/RapidKilling.png" alt="Tactician"></span>
+    </div>
+    <div class="ConnectorRow crow1">
+      <span id="taAttr1-Attr2" class="Connector bAttr1-Attr2"></span>
+      <span id="taAttr1-Attr3" class="Connector bAttr1-Attr3"></span>
+      <span id="taAttr1-Attr4" class="Connector bAttr1-Attr4"></span>
+    </div>
+    <div class="SkillRow row2">
+      <span id="taAttr2" class="Skill rdclr bAttr2"><img  src="icons/RapidKilling.png" alt="Tactician"></span>
+      <span id="taAttr3" class="Skill rdclr bAttr3"><img  src="icons/RapidKilling.png" alt="Tactician"></span>
+      <span id="taAttr4" class="Skill rdclr bAttr4"><img  src="icons/RapidKilling.png" alt="Tactician"></span>
+    </div>
+    <div class="ConnectorRow crow1">
+      <span id="taAttr2-Attr5" class="Connector bAttr2-Attr5"></span>
+      <span id="taAttr3-Attr6" class="Connector bAttr3-Attr6"></span>
+      <span id="taAttr4-Attr6" class="Connector bAttr4-Attr6"></span>
+    </div>
+    <div class="SkillRow row3">
+      <span id="taAttr5" class="Skill rdclr bAttr5"><img  src="icons/RapidKilling.png" alt="Tactician"></span>
+      <span id="taAttr6" class="Skill rdclr bAttr6"><img  src="icons/RapidKilling.png" alt="Tactician"></span>
+    </div>
+    <div class="ConnectorRow crow1">
+      <span id="taAttr3-Attr7" class="Connector bAttr3-Attr7"></span>
+      <span id="taAttr6-Attr8" class="Connector bAttr6-Attr8"></span>
+    </div>
+    <div class="SkillRow row4">
+      <span id="taAttr7" class="Skill rdclr bAttr7"><img  src="icons/RapidKilling.png" alt="Tactician"></span>
+      <span id="taAttr8" class="Skill rdclr bAttr8"><img  src="icons/RapidKilling.png" alt="Tactician"></span>
+    </div>
+    <div class="ConnectorRow crow1">
+      <span id="taAttr7-Attr9" class="Connector bAttr7-Attr9"></span>
+      <span id="taAttr8-Attr9" class="Connector bAttr8-Attr9"></span>
+    </div>
+    <div class="SkillRow row5">
+      <span id="taAttr9" class="Skill rdclr bAttr9"><img  src="icons/RapidKilling.png" alt="Tactician"></span>
+    </div>
+  </span>
+  <span id="Healer" class="btree">
+    <div class="SkillRow row1">
+      <span id="heAttr1" class="Skill lbclr bAttr1"><img  src="icons/InfusionofLight.png" alt="Healer"></span>
+    </div>
+    <div class="ConnectorRow crow1">
+      <span id="heAttr1-Attr2" class="Connector bAttr1-Attr2"></span>
+      <span id="heAttr1-Attr3" class="Connector bAttr1-Attr3"></span>
+      <span id="heAttr1-Attr4" class="Connector bAttr1-Attr4"></span>
+    </div>
+    <div class="SkillRow row2">
+      <span id="heAttr2" class="Skill lbclr bAttr2"><img  src="icons/InfusionofLight.png" alt="Healer"></span>
+      <span id="heAttr3" class="Skill lbclr bAttr3"><img  src="icons/InfusionofLight.png" alt="Healer"></span>
+      <span id="heAttr4" class="Skill lbclr bAttr4"><img  src="icons/InfusionofLight.png" alt="Healer"></span>
+    </div>
+    <div class="ConnectorRow crow1">
+      <span id="heAttr2-Attr5" class="Connector bAttr2-Attr5"></span>
+      <span id="heAttr3-Attr6" class="Connector bAttr3-Attr6"></span>
+      <span id="heAttr4-Attr6" class="Connector bAttr4-Attr6"></span>
+    </div>
+    <div class="SkillRow row3">
+      <span id="heAttr5" class="Skill lbclr bAttr5"><img  src="icons/InfusionofLight.png" alt="Healer"></span>
+      <span id="heAttr6" class="Skill lbclr bAttr6"><img  src="icons/InfusionofLight.png" alt="Healer"></span>
+    </div>
+    <div class="ConnectorRow crow1">
+      <span id="heAttr3-Attr7" class="Connector bAttr3-Attr7"></span>
+      <span id="heAttr6-Attr8" class="Connector bAttr6-Attr8"></span>
+    </div>
+    <div class="SkillRow row4">
+      <span id="heAttr7" class="Skill lbclr bAttr7"><img  src="icons/InfusionofLight.png" alt="Healer"></span>
+      <span id="heAttr8" class="Skill lbclr bAttr8"><img  src="icons/InfusionofLight.png" alt="Healer"></span>
+    </div>
+    <div class="ConnectorRow crow1">
+      <span id="heAttr7-Attr9" class="Connector bAttr7-Attr9"></span>
+      <span id="heAttr8-Attr9" class="Connector bAttr8-Attr9"></span>
+    </div>
+    <div class="SkillRow row5">
+      <span id="heAttr9" class="Skill lbclr bAttr9"><img  src="icons/InfusionofLight.png" alt="Healer"></span>
+    </div>
+  </span>
+  <span id="Alchemist" class="ctree">
+    <img class="professor" src="prof/webp/2Kianne-Dean-of-Substance-Strixhaven-MtG-Art.webp" alt="Kianne">
+    <div class="SkillRow row1">
+        <span id="alAttr1" class="Skill ywclr cAttr1"><img  src="icons/16_potion_potion.png" alt="Alchemist"></span>
+    </div>
+    <span class="ConnectorRow crow1">
+      <span id="alAttr1-Attr3" class="Connector cAttr1-Attr3"></span>
+    </span>
+    <div class="SkillRow row2">
+      <span id="alAttr2" class="Skill ywclr cAttr2"><img  src="icons/16_potion_potion.png" alt="Alchemist"></span>
+      <span id="alAttr3" class="Skill ywclr cAttr3"><img  src="icons/16_potion_potion.png" alt="Alchemist"></span>
+    </div>
+    <span class="ConnectorRow crow1">
+      <span id="alAttr2-Attr4" class="Connector cAttr2-Attr4"></span>
+      <span id="alAttr3-Attr4" class="Connector cAttr3-Attr4"></span>
+    </span>
+    <div class="SkillRow row3">
+      <span id="alAttr4" class="Skill ywclr cAttr4"><img  src="icons/16_potion_potion.png" alt="Alchemist"></span>
+      <span id="alAttr5" class="Skill ywclr cAttr5"><img  src="icons/16_potion_potion.png" alt="Alchemist"></span>
+    </div>
+    <span class="ConnectorRow crow1">
+      <span id="alAttr4-Attr6" class="Connector cAttr4-Attr6"></span>
+      <span id="alAttr3-Attr5" class="Connector cAttr3-Attr5"></span>
+    </span>
+    <div class="SkillRow row4">
+      <span id="alAttr6" class="Skill ywclr cAttr6"><img  src="icons/16_potion_potion.png" alt="Alchemist"></span>
+      <span id="alAttr7" class="Skill ywclr cAttr7"><img  src="icons/16_potion_potion.png" alt="Alchemist"></span>
+    </div>
+    <span class="ConnectorRow crow1">
+      <span id="alAttr6-Attr8" class="Connector cAttr6-Attr8"></span>
+      <span id="alAttr6-Attr9" class="Connector cAttr6-Attr9"></span>
+    </span>
+    <div class="SkillRow row5">
+      <span id="alAttr8" class="Skill ywclr cAttr8"><img  src="icons/16_potion_potion.png" alt="Alchemist"></span>
+      <span id="alAttr9" class="Skill ywclr cAttr9"><img  src="icons/16_potion_potion.png" alt="Alchemist"></span>
+    </div>
+    <span class="ConnectorRow crow1">
+      <span id="alAttr5-Attr7" class="Connector cAttr5-Attr7"></span>
+      <span id="alAttr7-Attr9" class="Connector cAttr7-Attr9"></span>
+    </span>
+  </span>
+  <span id="Exploration" class="atree">
+    <div class="SkillRow row1">
+        <span id="exAttr1" class="Skill owclr aAttr1"><img  src="icons/Spy.png" alt="Exploration"></span>
+        <span id="exAttr2" class="Skill owclr aAttr2"><img  src="icons/Spy.png" alt="Exploration"></span>
+    </div>
+    <div class="ConnectorRow crow1">
+        <span id="exAttr1-Attr3" class="Connector aAttr1-Attr3"></span>
+        <span id="exAttr1-Attr4" class="Connector aAttr1-Attr4"></span>
+        <span id="exAttr2-Attr7" class="Connector aAttr2-Attr7"></span>
+        <span id="exAttr2-Attr8" class="Connector aAttr2-Attr8"></span>
+    </div>
+    <div class="SkillRow row2">
+      <span id="exAttr3" class="Skill owclr aAttr3"><img  src="icons/Spy.png" alt="Exploration"></span>
+      <span id="exAttr4" class="Skill owclr aAttr4"><img  src="icons/Spy.png" alt="Exploration"></span>
+      <span id="exAttr7" class="Skill owclr aAttr7"><img  src="icons/Spy.png" alt="Exploration"></span>
+      <span id="exAttr8" class="Skill owclr aAttr8"><img  src="icons/Spy.png" alt="Exploration"></span>
+    </div>
+    <div class="ConnectorRow crow2">
+        <span id="exAttr3-Attr5" class="Connector aAttr3-Attr5"></span>
+        <span id="exAttr4-Attr5" class="Connector aAttr4-Attr5"></span>
+        <span id="exAttr7-Attr9" class="Connector aAttr7-Attr9"></span>
+        <span id="exAttr8-Attr9" class="Connector aAttr8-Attr9"></span>
+    </div>
+    <div class="SkillRow row3">
+      <span id="exAttr5" class="Skill owclr aAttr5"><img  src="icons/Spy.png" alt="Exploration"></span>
+      <span id="exAttr9" class="Skill owclr aAttr9"><img  src="icons/Spy.png" alt="Exploration"></span>
+    </div>
+    <div class="ConnectorRow crow3">
+      <span id="exAttr5-Attr6" class="Connector aAttr5-Attr6"></span>
+    </div>
+    <div class="SkillRow row4">
+      <span id="exAttr6" class="Skill owclr aAttr6"><img  src="icons/Spy.png" alt="Exploration"></span>
+    </div>
+  </span>
+  <span id="Orator" class="atree">
+    <div class="SkillRow row1">
+        <span id="orAttr1" class="Skill orclr aAttr1"><img  src="icons/scream-wail-shout-teal.png" alt="Orator"></span>
+        <span id="orAttr2" class="Skill orclr aAttr2"><img  src="icons/scream-wail-shout-teal.png" alt="Orator"></span>
+    </div>
+    <div class="ConnectorRow crow1">
+        <span id="orAttr1-Attr3" class="Connector aAttr1-Attr3"></span>
+        <span id="orAttr1-Attr4" class="Connector aAttr1-Attr4"></span>
+        <span id="orAttr2-Attr7" class="Connector aAttr2-Attr7"></span>
+        <span id="orAttr2-Attr8" class="Connector aAttr2-Attr8"></span>
+    </div>
+    <div class="SkillRow row2">
+      <span id="orAttr3" class="Skill orclr aAttr3"><img  src="icons/scream-wail-shout-teal.png" alt="Orator"></span>
+      <span id="orAttr4" class="Skill orclr aAttr4"><img  src="icons/scream-wail-shout-teal.png" alt="Orator"></span>
+      <span id="orAttr7" class="Skill orclr aAttr7"><img  src="icons/scream-wail-shout-teal.png" alt="Orator"></span>
+      <span id="orAttr8" class="Skill orclr aAttr8"><img  src="icons/scream-wail-shout-teal.png" alt="Orator"></span>
+    </div>
+    <div class="ConnectorRow crow2">
+        <span id="orAttr3-Attr5" class="Connector aAttr3-Attr5"></span>
+        <span id="orAttr4-Attr5" class="Connector aAttr4-Attr5"></span>
+        <span id="orAttr7-Attr9" class="Connector aAttr7-Attr9"></span>
+        <span id="orAttr8-Attr9" class="Connector aAttr8-Attr9"></span>
+    </div>
+    <div class="SkillRow row3">
+      <span id="orAttr5" class="Skill orclr aAttr5"><img  src="icons/scream-wail-shout-teal.png" alt="Orator"></span>
+      <span id="orAttr9" class="Skill orclr aAttr9"><img  src="icons/scream-wail-shout-teal.png" alt="Orator"></span>
+    </div>
+    <div class="ConnectorRow crow3">
+      <span id="orAttr5-Attr6" class="Connector aAttr5-Attr6"></span>
+    </div>
+    <div class="SkillRow row4">
+      <span id="orAttr6" class="Skill orclr aAttr6"><img  src="icons/scream-wail-shout-teal.png" alt="Orator"></span>
+    </div>
+  </span>
+  <span id="Performer" class="btree">
+    <div class="SkillRow row1">
+      <span id="peAttr1" class="Skill ywclr bAttr1"><img  src="icons/drum-snare-white.png" alt="Performer"></span>
+    </div>
+    <div class="ConnectorRow crow1">
+      <span id="peAttr1-Attr2" class="Connector bAttr1-Attr2"></span>
+      <span id="peAttr1-Attr3" class="Connector bAttr1-Attr3"></span>
+      <span id="peAttr1-Attr4" class="Connector bAttr1-Attr4"></span>
+    </div>
+    <div class="SkillRow row2">
+      <span id="peAttr2" class="Skill ywclr bAttr2"><img  src="icons/drum-snare-white.png" alt="Performer"></span>
+      <span id="peAttr3" class="Skill ywclr bAttr3"><img  src="icons/drum-snare-white.png" alt="Performer"></span>
+      <span id="peAttr4" class="Skill ywclr bAttr4"><img  src="icons/drum-snare-white.png" alt="Performer"></span>
+    </div>
+    <div class="ConnectorRow crow1">
+      <span id="peAttr2-Attr5" class="Connector bAttr2-Attr5"></span>
+      <span id="peAttr3-Attr6" class="Connector bAttr3-Attr6"></span>
+      <span id="peAttr4-Attr6" class="Connector bAttr4-Attr6"></span>
+    </div>
+    <div class="SkillRow row3">
+      <span id="peAttr5" class="Skill ywclr bAttr5"><img  src="icons/drum-snare-white.png" alt="Performer"></span>
+      <span id="peAttr6" class="Skill ywclr bAttr6"><img  src="icons/drum-snare-white.png" alt="Performer"></span>
+    </div>
+    <div class="ConnectorRow crow1">
+      <span id="peAttr3-Attr7" class="Connector bAttr3-Attr7"></span>
+      <span id="peAttr6-Attr8" class="Connector bAttr6-Attr8"></span>
+    </div>
+    <div class="SkillRow row4">
+      <span id="peAttr7" class="Skill ywclr bAttr7"><img  src="icons/drum-snare-white.png" alt="Performer"></span>
+      <span id="peAttr8" class="Skill ywclr bAttr8"><img  src="icons/drum-snare-white.png" alt="Performer"></span>
+    </div>
+    <div class="ConnectorRow crow1">
+      <span id="peAttr7-Attr9" class="Connector bAttr7-Attr9"></span>
+      <span id="peAttr8-Attr9" class="Connector bAttr8-Attr9"></span>
+    </div>
+    <div class="SkillRow row5">
+      <span id="peAttr9" class="Skill ywclr bAttr9"><img  src="icons/drum-snare-white.png" alt="Performer"></span>
+    </div>
+  </span>
+  <span id="Artist" class="ctree">
+    <div class="SkillRow row1">
+        <span id="arAttr1" class="Skill lbclr cAttr1"><img  src="icons/brush-paint-pink.png" alt="Artist"></span>
+    </div>
+    <span class="ConnectorRow crow1">
+      <span id="arAttr1-Attr3" class="Connector cAttr1-Attr3"></span>
+    </span>
+    <div class="SkillRow row2">
+      <span id="arAttr2" class="Skill lbclr cAttr2"><img  src="icons/brush-paint-pink.png" alt="Artist"></span>
+      <span id="arAttr3" class="Skill lbclr cAttr3"><img  src="icons/brush-paint-pink.png" alt="Artist"></span>
+    </div>
+    <span class="ConnectorRow crow1">
+      <span id="arAttr2-Attr4" class="Connector cAttr2-Attr4"></span>
+      <span id="arAttr3-Attr4" class="Connector cAttr3-Attr4"></span>
+    </span>
+    <div class="SkillRow row3">
+      <span id="arAttr4" class="Skill lbclr cAttr4"><img  src="icons/brush-paint-pink.png" alt="Artist"></span>
+      <span id="arAttr5" class="Skill lbclr cAttr5"><img  src="icons/brush-paint-pink.png" alt="Artist"></span>
+    </div>
+    <span class="ConnectorRow crow1">
+      <span id="arAttr4-Attr6" class="Connector cAttr4-Attr6"></span>
+      <span id="arAttr3-Attr5" class="Connector cAttr3-Attr5"></span>
+    </span>
+    <div class="SkillRow row4">
+      <span id="arAttr6" class="Skill lbclr cAttr6"><img  src="icons/brush-paint-pink.png" alt="Artist"></span>
+      <span id="arAttr7" class="Skill lbclr cAttr7"><img  src="icons/brush-paint-pink.png" alt="Artist"></span>
+    </div>
+    <span class="ConnectorRow crow1">
+      <span id="arAttr6-Attr8" class="Connector cAttr6-Attr8"></span>
+      <span id="arAttr6-Attr9" class="Connector cAttr6-Attr9"></span>
+    </span>
+    <div class="SkillRow row5">
+      <span id="arAttr8" class="Skill lbclr cAttr8"><img  src="icons/brush-paint-pink.png" alt="Artist"></span>
+      <span id="arAttr9" class="Skill lbclr cAttr9"><img  src="icons/brush-paint-pink.png" alt="Artist"></span>
+    </div>
+    <span class="ConnectorRow crow1">
+      <span id="arAttr5-Attr7" class="Connector cAttr5-Attr7"></span>
+      <span id="arAttr7-Attr9" class="Connector cAttr7-Attr9"></span>
+    </span>
+  </span>
+  <span id="Commander" class="ctree">
+    <img class="professor" src="prof/webp/AugustDeanOfOrder.webp" alt="Augusta">
+    <div class="SkillRow row1">
+        <span id="coAttr1" class="Skill rdclr cAttr1"><img  src="icons/StayofExecution.png" alt="Commander"></span>
+    </div>
+    <span class="ConnectorRow crow1">
+      <span id="coAttr1-Attr3" class="Connector cAttr1-Attr3"></span>
+    </span>
+    <div class="SkillRow row2">
+      <span id="coAttr2" class="Skill rdclr cAttr2"><img  src="icons/StayofExecution.png" alt="Commander"></span>
+      <span id="coAttr3" class="Skill rdclr cAttr3"><img  src="icons/StayofExecution.png" alt="Commander"></span>
+    </div>
+    <span class="ConnectorRow crow1">
+      <span id="coAttr2-Attr4" class="Connector cAttr2-Attr4"></span>
+      <span id="coAttr3-Attr4" class="Connector cAttr3-Attr4"></span>
+    </span>
+    <div class="SkillRow row3">
+      <span id="coAttr4" class="Skill rdclr cAttr4"><img  src="icons/StayofExecution.png" alt="Commander"></span>
+      <span id="coAttr5" class="Skill rdclr cAttr5"><img  src="icons/StayofExecution.png" alt="Commander"></span>
+    </div>
+    <span class="ConnectorRow crow1">
+      <span id="coAttr4-Attr6" class="Connector cAttr4-Attr6"></span>
+      <span id="coAttr3-Attr5" class="Connector cAttr3-Attr5"></span>
+    </span>
+    <div class="SkillRow row4">
+      <span id="coAttr6" class="Skill rdclr cAttr6"><img  src="icons/StayofExecution.png" alt="Commander"></span>
+      <span id="coAttr7" class="Skill rdclr cAttr7"><img  src="icons/StayofExecution.png" alt="Commander"></span>
+    </div>
+    <span class="ConnectorRow crow1">
+      <span id="coAttr6-Attr8" class="Connector cAttr6-Attr8"></span>
+      <span id="coAttr6-Attr9" class="Connector cAttr6-Attr9"></span>
+    </span>
+    <div class="SkillRow row5">
+      <span id="coAttr8" class="Skill rdclr cAttr8"><img  src="icons/StayofExecution.png" alt="Commander"></span>
+      <span id="coAttr9" class="Skill rdclr cAttr9"><img  src="icons/StayofExecution.png" alt="Commander"></span>
+    </div>
+    <span class="ConnectorRow crow1">
+      <span id="coAttr5-Attr7" class="Connector cAttr5-Attr7"></span>
+      <span id="coAttr7-Attr9" class="Connector cAttr7-Attr9"></span>
+    </span>
+  </span>
+  <span id="Stealth" class="atree">
+    <div class="SkillRow row1">
+        <span id="stAttr1" class="Skill dgclr aAttr1"><img  src="icons/SupriseAttack.png" alt="Stealth"></span>
+        <span id="stAttr2" class="Skill dgclr aAttr2"><img  src="icons/SupriseAttack.png" alt="Stealth"></span>
+    </div>
+    <div class="ConnectorRow crow1">
+        <span id="stAttr1-Attr3" class="Connector aAttr1-Attr3"></span>
+        <span id="stAttr1-Attr4" class="Connector aAttr1-Attr4"></span>
+        <span id="stAttr2-Attr7" class="Connector aAttr2-Attr7"></span>
+        <span id="stAttr2-Attr8" class="Connector aAttr2-Attr8"></span>
+    </div>
+    <div class="SkillRow row2">
+      <span id="stAttr3" class="Skill dgclr aAttr3"><img  src="icons/SupriseAttack.png" alt="Stealth"></span>
+      <span id="stAttr4" class="Skill dgclr aAttr4"><img  src="icons/SupriseAttack.png" alt="Stealth"></span>
+      <span id="stAttr7" class="Skill dgclr aAttr7"><img  src="icons/SupriseAttack.png" alt="Stealth"></span>
+      <span id="stAttr8" class="Skill dgclr aAttr8"><img  src="icons/SupriseAttack.png" alt="Stealth"></span>
+    </div>
+    <div class="ConnectorRow crow2">
+        <span id="stAttr3-Attr5" class="Connector aAttr3-Attr5"></span>
+        <span id="stAttr4-Attr5" class="Connector aAttr4-Attr5"></span>
+        <span id="stAttr7-Attr9" class="Connector aAttr7-Attr9"></span>
+        <span id="stAttr8-Attr9" class="Connector aAttr8-Attr9"></span>
+    </div>
+    <div class="SkillRow row3">
+      <span id="stAttr5" class="Skill dgclr aAttr5"><img  src="icons/SupriseAttack.png" alt="Stealth"></span>
+      <span id="stAttr9" class="Skill dgclr aAttr9"><img  src="icons/SupriseAttack.png" alt="Stealth"></span>
+    </div>
+    <div class="ConnectorRow crow3">
+      <span id="stAttr5-Attr6" class="Connector aAttr5-Attr6"></span>
+    </div>
+    <div class="SkillRow row4">
+      <span id="stAttr6" class="Skill dgclr aAttr6"><img  src="icons/SupriseAttack.png" alt="Stealth"></span>
+    </div>
+  </span>
+  <span id="Poisoner" class="btree">
+    <div class="SkillRow row1">
+      <span id="psAttr1" class="Skill ngclr bAttr1"><img  src="icons/PlagueBarrel.png" alt="Poisoner"></span>
+    </div>
+    <div class="ConnectorRow crow1">
+      <span id="psAttr1-Attr2" class="Connector bAttr1-Attr2"></span>
+      <span id="psAttr1-Attr3" class="Connector bAttr1-Attr3"></span>
+      <span id="psAttr1-Attr4" class="Connector bAttr1-Attr4"></span>
+    </div>
+    <div class="SkillRow row2">
+      <span id="psAttr2" class="Skill ngclr bAttr2"><img  src="icons/PlagueBarrel.png" alt="Poisoner"></span>
+      <span id="psAttr3" class="Skill ngclr bAttr3"><img  src="icons/PlagueBarrel.png" alt="Poisoner"></span>
+      <span id="psAttr4" class="Skill ngclr bAttr4"><img  src="icons/PlagueBarrel.png" alt="Poisoner"></span>
+    </div>
+    <div class="ConnectorRow crow1">
+      <span id="psAttr2-Attr5" class="Connector bAttr2-Attr5"></span>
+      <span id="psAttr3-Attr6" class="Connector bAttr3-Attr6"></span>
+      <span id="psAttr4-Attr6" class="Connector bAttr4-Attr6"></span>
+    </div>
+    <div class="SkillRow row3">
+      <span id="psAttr5" class="Skill ngclr bAttr5"><img  src="icons/PlagueBarrel.png" alt="Poisoner"></span>
+      <span id="psAttr6" class="Skill ngclr bAttr6"><img  src="icons/PlagueBarrel.png" alt="Poisoner"></span>
+    </div>
+    <div class="ConnectorRow crow1">
+      <span id="psAttr3-Attr7" class="Connector bAttr3-Attr7"></span>
+      <span id="psAttr6-Attr8" class="Connector bAttr6-Attr8"></span>
+    </div>
+    <div class="SkillRow row4">
+      <span id="psAttr7" class="Skill ngclr bAttr7"><img  src="icons/PlagueBarrel.png" alt="Poisoner"></span>
+      <span id="psAttr8" class="Skill ngclr bAttr8"><img  src="icons/PlagueBarrel.png" alt="Poisoner"></span>
+    </div>
+    <div class="ConnectorRow crow1">
+      <span id="psAttr7-Attr9" class="Connector bAttr7-Attr9"></span>
+      <span id="psAttr8-Attr9" class="Connector bAttr8-Attr9"></span>
+    </div>
+    <div class="SkillRow row5">
+      <span id="psAttr9" class="Skill ngclr bAttr9"><img  src="icons/PlagueBarrel.png" alt="Poisoner"></span>
+    </div>
+  </span>
+  <!-- <span id="PreSideBar">
+    <span id="toolTip2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum nesciunt illo minus?</span>
+  </span> -->
+  <span id="SideBar">
+      <p id="points">Points Available: n/a</p>
+      <div id="myLoader" class="sbBtn">Load Saved Skills</div>
+      <div id="mySaver" class="sbBtn">Save Skills</div>
+      <div id="ResetSkills" class="sbBtn">Reset Skills</div>
+  </span>
+</div>
+<div id="Tooltips">
+  <div id="IllusionistText">
+    <div id="ilAttr1Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="ilAttr2Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="ilAttr3Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="ilAttr4Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="ilAttr5Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="ilAttr6Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="ilAttr7Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="ilAttr8Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="ilAttr9Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+  </div>
+  <div id="ElementomancyText">
+    <div id="elAttr1Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="elAttr2Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="elAttr3Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="elAttr4Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="elAttr5Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="elAttr6Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="elAttr7Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="elAttr8Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="elAttr9Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+  </div>
+  <div id="MathomancyText">
+    <div id="mtAttr1Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="mtAttr2Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="mtAttr3Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="mtAttr4Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="mtAttr5Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="mtAttr6Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="mtAttr7Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="mtAttr8Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="mtAttr9Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+  </div>
+  <div id="ArchaeomancyText">
+    <div id="aoAttr1Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="aoAttr2Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="aoAttr3Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="aoAttr4Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="aoAttr5Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="aoAttr6Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="aoAttr7Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="aoAttr8Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="aoAttr9Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+  </div>
+  <div id="ProtectorText">
+    <div id="prAttr1Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="prAttr2Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="prAttr3Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="prAttr4Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="prAttr5Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="prAttr6Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="prAttr7Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="prAttr8Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="prAttr9Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+  </div>
+  <div id="EvokerText">
+    <div id="evAttr1Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="evAttr2Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="evAttr3Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="evAttr4Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="evAttr5Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="evAttr6Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="evAttr7Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="evAttr8Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="evAttr9Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+  </div>
+  <div id="NecromancyText">
+    <div id="nmAttr1Text" class="tooltip"><h3>Puppetteere</h3>You can invoke your spells to originate from an undead you control and can see.</div>
+    <div id="nmAttr2Text" class="tooltip"><h3>Reaper's Blade</h3>You may pick one of these damage types: piercing/bludgeoning/slashing/force.  When you deal damage with the chosen type, you can choose to change it to necrotic instead.</div>
+    <div id="nmAttr3Text" class="tooltip"><h3>Adept Necromancer</h3>When you cast a necromancy spell 3rd level or lower, you may roll a d100. On a 50 or higher you don't lose the spell slot.</div>
+    <div id="nmAttr4Text" class="tooltip"><h3>Loyal Skelly</h3>At the beginning of combat if you have no undead, you may have a skeleton archer conjure beside you.</div>
+    <div id="nmAttr5Text" class="tooltip"><h3>Shared Tether</h3>As an action you may transfer hp from one undead you control or yourself, into yourself or another undead you control.</div>
+    <div id="nmAttr6Text" class="tooltip"><h3>All Rise!</h3>Once per day as an action, you can revive any undead within 30feet of you with 10 hitpoints each. </div>
+    <div id="nmAttr7Text" class="tooltip"><h3>Death's Tongue</h3>You can cast speak with dead at will.</div>
+    <div id="nmAttr8Text" class="tooltip"><h3>Protect the Lich!</h3>Once per day as a bonus action, you can give an undead you control an extra turn after yours.</div>
+    <div id="nmAttr9Text" class="tooltip"><h3>Siphon Life</h3>Once per day you can deal 100 force damage to an undead as an action.  If it dies from this ability, you gain 10d6 temporary hp.</div>
+  </div>
+  <div id="InkomancyText">
+    <div id="ioAttr1Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="ioAttr2Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="ioAttr3Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="ioAttr4Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="ioAttr5Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="ioAttr6Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="ioAttr7Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="ioAttr8Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="ioAttr9Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+  </div>
+  <div id="PlantomancyText">
+    <div id="poAttr1Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="poAttr2Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="poAttr3Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="poAttr4Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="poAttr5Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="poAttr6Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="poAttr7Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="poAttr8Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="poAttr9Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+  </div>
+  <div id="MagehunterText">
+    <div id="mhAttr1Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="mhAttr2Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="mhAttr3Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="mhAttr4Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="mhAttr5Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="mhAttr6Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="mhAttr7Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="mhAttr8Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="mhAttr9Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+  </div>
+  <div id="RunnerText">
+    <div id="ruAttr1Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="ruAttr2Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="ruAttr3Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="ruAttr4Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="ruAttr5Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="ruAttr6Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="ruAttr7Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="ruAttr8Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="ruAttr9Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+  </div>
+  <div id="SpellswordText">
+    <div id="ssAttr1Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="ssAttr2Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="ssAttr3Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="ssAttr4Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="ssAttr5Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="ssAttr6Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="ssAttr7Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="ssAttr8Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="ssAttr9Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+  </div>
+  <div id="GuardText">
+    <div id="guAttr1Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="guAttr2Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="guAttr3Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="guAttr4Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="guAttr5Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="guAttr6Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="guAttr7Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="guAttr8Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="guAttr9Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+  </div>
+  <div id="JuggernautText">
+    <div id="juAttr1Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="juAttr2Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="juAttr3Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="juAttr4Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="juAttr5Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="juAttr6Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="juAttr7Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="juAttr8Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="juAttr9Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+  </div>
+  <div id="AurorText">
+    <div id="auAttr1Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="auAttr2Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="auAttr3Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="auAttr4Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="auAttr5Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="auAttr6Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="auAttr7Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="auAttr8Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="auAttr9Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+  </div>
+  <div id="ArcheryText">
+    <div id="acAttr1Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="acAttr2Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="acAttr3Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="acAttr4Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="acAttr5Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="acAttr6Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="acAttr7Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="acAttr8Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="acAttr9Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+  </div>
+  <div id="DuelistText">
+    <div id="duAttr1Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="duAttr2Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="duAttr3Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="duAttr4Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="duAttr5Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="duAttr6Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="duAttr7Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="duAttr8Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="duAttr9Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+  </div>
+  <div id="TacticianText">
+    <div id="taAttr1Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="taAttr2Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="taAttr3Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="taAttr4Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="taAttr5Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="taAttr6Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="taAttr7Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="taAttr8Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="taAttr9Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+  </div>
+  <div id="HealerText">
+    <div id="heAttr1Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="heAttr2Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="heAttr3Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="heAttr4Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="heAttr5Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="heAttr6Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="heAttr7Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="heAttr8Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="heAttr9Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+  </div>
+  <div id="AlchemistText">
+    <div id="alAttr1Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="alAttr2Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="alAttr3Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="alAttr4Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="alAttr5Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="alAttr6Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="alAttr7Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="alAttr8Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="alAttr9Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+  </div>
+  <div id="ExplorationText">
+    <div id="exAttr1Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="exAttr2Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="exAttr3Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="exAttr4Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="exAttr5Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="exAttr6Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="exAttr7Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="exAttr8Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="exAttr9Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+  </div>
+  <div id="OratorText">
+    <div id="orAttr1Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="orAttr2Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="orAttr3Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="orAttr4Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="orAttr5Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="orAttr6Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="orAttr7Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="orAttr8Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="orAttr9Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+  </div>
+  <div id="PerformerText">
+    <div id="peAttr1Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="peAttr2Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="peAttr3Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="peAttr4Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="peAttr5Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="peAttr6Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="peAttr7Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="peAttr8Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="peAttr9Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+  </div>
+  <div id="ArtistText">
+    <div id="arAttr1Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="arAttr2Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="arAttr3Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="arAttr4Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="arAttr5Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="arAttr6Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="arAttr7Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="arAttr8Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="arAttr9Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+  </div>
+  <div id="CommanderText">
+    <div id="coAttr1Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="coAttr2Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="coAttr3Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="coAttr4Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="coAttr5Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="coAttr6Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="coAttr7Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="coAttr8Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="coAttr9Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+  </div>
+  <div id="StealthText">
+    <div id="stAttr1Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="stAttr2Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="stAttr3Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="stAttr4Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="stAttr5Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="stAttr6Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="stAttr7Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="stAttr8Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="stAttr9Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+  </div>
+  <div id="PoisonerText">
+    <div id="psAttr1Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="psAttr2Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="psAttr3Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="psAttr4Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="psAttr5Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="psAttr6Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="psAttr7Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="psAttr8Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+    <div id="psAttr9Text" class="tooltip">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt voluptate accusamus!</div>
+  </div>
+</div>
+  <!-- <form action="skillSaverForm" action="/skilltree" method="POST">
+    <input id="inputBtns" type="hidden" name="myBtns" value="">
+    <input id="inputNumSkills" type="hidden" name="numSkills">
+    <input id="initialUser" type="hidden" value="placeholder">
+    
+  </form> -->
+</body>
+</html>

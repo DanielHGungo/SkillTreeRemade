@@ -1,0 +1,534 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+h1 {
+    margin: 0;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    font-family: Andale Mono, monospace;
+}
+.navbar {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: white;
+    width: 100%;
+}
+.navbar-options{
+    width: 100%;
+}
+.navbar-options ul{
+    padding: 0;
+    margin-bottom: 0;
+    display: flex;
+    height: 3vw;
+    justify-items: center;
+    align-items: center;
+}
+.navbar-options li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    width: 100%;
+    text-align: center;
+    height: 3vw;
+}
+#UserHover{
+    width: 100%;
+}
+.navbar-options ul li {
+    display: inline-block;
+    margin-bottom: 2vw;
+    text-decoration: none;
+    color: aqua;
+    user-select: none;
+    font-size: 2em;
+}
+.navbar-options ul li:hover {
+    width: 100%;
+    border-radius: 10px;
+    background-color: #555;
+}
+.Mage-options{
+    display: none;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: white;
+    width: 100%;
+    min-height: 5vw;
+}
+.Mage-options span{
+    height: 100%;
+    width: 100%;
+    min-height: 5vw;
+    text-align: center;
+}
+.Mage-options span h4{
+    margin: 0;
+    top: 0;
+    font-size: 1.5em;
+    text-decoration: underline;
+}
+.Mage-options span ul{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.Mage-options span li{
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    list-style: none;
+    font-size: 1.2em;
+    color: white;
+    text-shadow: 1px 1px black;
+    text-decoration: none;
+    text-align: center;
+    user-select: none;
+}
+.Creative{
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+}
+.Dark-Arts{
+    background: linear-gradient(90deg, rgb(74, 73, 83) 0%, rgb(25, 25, 27) 35%, rgb(0, 0, 0) 100%);
+}
+.Traditional{
+    background: linear-gradient(90deg, rgb(210, 212, 205) 0%, rgb(196, 167, 88) 35%, rgb(114, 86, 8) 100%);
+}
+.Mage-options li:hover {
+    border-radius: 10px;
+    box-shadow: 0 0 2px 2px white;
+    background-color: rgb(80, 77, 77);
+    background-color: rgb(60, 228, 60);
+}
+#MageID.active, #WarriorID.active, #SpecialistID.active {
+    display: flex;
+}
+#MageHover.active, #WarriorHover.active, #SpecialistHover.active, #UserHover.active {
+    width: 100%;
+    background-color: #555;
+    border-radius: 10px;
+    box-shadow: 0 0 5px white;
+}
+#TreeAndSideBar{
+    display: flex;
+    width: 100%;
+}
+.professor{
+    position: absolute;
+    max-width: 100%;
+}
+.prof2{
+    position: absolute;
+    width: 50%;
+}
+.atree, .btree, .ctree{
+    display: none;
+    position: relative;
+    margin: 0;
+    width: 100%;
+    min-height: 4rem;
+    background: black;
+    /* background:rgb(253, 217, 163); */
+}
+#toolTip{
+    position: absolute;
+    max-width: 20vw;
+    background: red;
+    transform: translate(-20vw, 0);
+    
+}
+.tooltip{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    position: absolute;
+    color: white;
+	background-color: rgb(46, 44, 44);
+    border-radius: 5px;
+    box-shadow: inset 0 0 5px 5px black;
+	display: none;
+	width: 30vw;
+	z-index: 1000;
+}
+.tooltip h3{
+    margin-top: 0;
+    margin-bottom: 0;
+    text-align: center;
+    text-decoration: underline;
+}
+#SideBar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vw;
+    min-width: 25vw;
+    background-color: rgba(10, 10, 10, 0.781);
+    color: white;
+    box-shadow: inset 0.5vw 0vw 1vw 1vw black;
+}
+.SkillRow{
+    position: relative;
+    display: flex;
+}
+.SkillRow span img{
+    border-radius: 50%;
+}
+.Skill{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    position: relative;
+    width: 7vw;
+    height: 7vw;
+    background-color: aqua;
+}
+.ngclr{
+    background-color: chartreuse;
+}
+.lbclr{
+    background-color: aqua;
+}
+.dgclr{
+    background-color: green;
+}
+.owclr{
+    background-color: floralwhite;
+}
+.svclr{
+    background-color: silver;
+}
+.orclr{
+    background-color: orange;
+}
+.ywclr{
+    background-color: yellow;
+}
+.Skill img{
+    margin: auto;
+    width: 6vw;
+}
+.aAttr1{
+    z-index: 1;
+    transform: translate(-20.5vw, 0);
+}
+.row1{
+    justify-content: center;
+}
+.ConnectorRow{
+    width: 100%;
+    margin-left: 50%;
+    display: flex;
+    justify-items: center;
+}
+.Connector{
+    position: absolute;
+    width: 1vw;
+    height: 11vw;
+    background-color: purple;
+}
+.aAttr1-Attr3{
+    transform: translate(-29.5vw, -2.4vw) rotate(35deg);
+}
+.aAttr1-Attr4{
+    transform:  translate(-19.5vw, -2.5vw) rotate(-35deg);
+}
+.aAttr2-Attr7{
+    transform: translate(-2vw, -2.4vw) rotate(35deg);
+}
+.aAttr2-Attr8{
+    transform: translate(8vw, -2.4vw) rotate(-35deg);
+}
+.aAttr4-Attr5{
+    transform: translate(-19.5vw, -2vw) rotate(35deg);
+}
+.aAttr3-Attr5{
+    transform: translate(-29.5vw, -2.8vw) rotate(-35deg);
+}
+.aAttr7-Attr9{
+    transform: translate(-2vw, -2vw) rotate(-35deg);
+}
+.aAttr8-Attr9{
+    transform: translate(8vw, -3vw) rotate(35deg);
+}
+.row2{
+    padding-top: 5vw;
+    justify-content: space-evenly;
+}
+.row3{
+    padding-top: 5vw;
+    justify-content: center;
+}
+.aAttr3{
+    left: 5vw;
+    transform: translate(-13vw, 0);
+    z-index: 2;
+}
+.aAttr4{
+    right: 5vw;
+    transform: translate(-3vw, 0);
+    z-index: 2;
+}
+.aAttr5{
+    transform: translate(-20.5vw, 0);
+    z-index: 2;
+}
+#Attr5-Attr6, .aAttr5-Attr6{
+    transform: translate(-24.5vw, -1vw);
+}
+.row4{
+    padding-top: 5vw;
+    justify-content: center;
+}
+.aAttr6{
+    transform: translate(-24vw, 3vw);
+}
+.aAttr2{
+    transform: translate(0vw, 0);
+    z-index: 1;
+}
+.aAttr7{
+    transform: translate(-13vw, 0);
+    z-index: 2;
+}
+.aAttr8{
+    transform: translate(-11.5vw, 0);
+    z-index: 2;
+}
+.aAttr9{
+    transform: translate(0vw, 0vw);
+}
+/* #Elementomancy{
+    display: inline-block;
+} */
+/* #Mathomancy{
+    display: none;
+} */
+/* .row2{
+    background: gray;
+}
+.row3{
+    background: lightgreen;
+} */
+.cAttr1{
+    z-index: 1;
+    transform: translate(10vw, 0vw);
+}
+.cAttr2{
+    z-index: 2;
+    transform: translate(-5vw, 5vw);
+}
+.cAttr3{
+    z-index: 2;
+    transform: translate(4vw, 5vw);
+}
+.cAttr4{
+    z-index: 3;
+    transform: translate(-11vw, 15vw);
+}
+.cAttr5{
+    z-index: 3;
+    transform: translate(-2vw, 15vw);
+}
+.cAttr6{
+    z-index: 4;
+    transform: translate(-17vw, 25vw);
+}
+.cAttr7{
+    z-index: 4;
+    transform: translate(-8vw, 25vw);
+}
+.cAttr8{
+    z-index: 5;
+    transform: translate(-38.5vw, 40vw);
+}
+.cAttr9{
+    z-index: 5;
+    transform: translate(-30vw, 40vw);
+}
+.crow1{
+    position: absolute;
+}
+.cAttr1-Attr3{
+    transform: translate(-20vw, 4vw) rotate(-35deg);
+}
+.cAttr2-Attr4{
+    transform: translate(-28vw, 14vw) rotate(-35deg);
+}
+.cAttr3-Attr4{
+    transform: translate(-20vw, 13vw) rotate(35deg);
+}
+.cAttr4-Attr6{
+    transform: translate(-20.5vw, 24vw) rotate(-35deg);
+}
+.cAttr3-Attr5{
+    transform: translate(-12vw, 15vw) rotate(-35deg);
+}
+.cAttr6-Attr8{
+    transform: translate(-20vw, 33vw) rotate(35deg);
+}
+.cAttr6-Attr9{
+    transform: translate(-12.5vw, 35vw) rotate(-35deg);
+}
+.cAttr5-Attr7{
+    transform: translate(-4.5vw, 25vw) rotate(-35deg);
+}
+.cAttr7-Attr9{
+    transform: translate(-5vw, 35vw) rotate(35deg);
+}
+.bAttr1{
+    transform: translate(-10vw, 0vw);
+    z-index: 1;
+}
+.bAttr2{
+    transform: translate(-10vw, 0vw);
+    z-index: 2;
+}
+.bAttr3{
+    z-index: 2;
+    transform: translate(-10vw, 0vw);
+}
+.bAttr4{
+    z-index: 2;
+    transform: translate(-10vw, 0vw);
+}
+.bAttr5{
+    transform: translate(-26.5vw, 0vw);
+}
+.bAttr6{
+    z-index: 3;
+    transform: translate(-3vw, 0vw);
+}
+.bAttr7{
+    z-index: 4;
+    transform: translate(-6.5vw, 0vw);
+}
+.bAttr8{
+    z-index: 4;
+    transform: translate(7.5vw, 0vw);
+}
+.bAttr9{
+    transform: translate(34vw, 5vw);
+}
+.bAttr1-Attr2{
+    height: 25vw;
+    transform: translate(-20vw, -10vw) rotate(60deg);
+}
+.bAttr1-Attr3{
+    transform: translate(-10.5vw, 0vw);
+}
+.bAttr1-Attr4{
+    height: 25vw;
+    transform: translate(0vw, -10vw) rotate(-60deg);
+}
+.bAttr2-Attr5{
+    transform: translate(-30.5vw, -2vw);
+}
+.bAttr3-Attr6{
+    height: 12vw;
+    transform: translate(-5vw, -3vw) rotate(-40deg);
+}
+.bAttr4-Attr6{
+    transform: translate(5vw, -3vw) rotate(40deg);
+}
+.bAttr3-Attr7{
+    height: 19vw;
+    transform: translate(-10.5vw, -13vw);
+}
+.bAttr6-Attr8{
+    height: 12vw;
+    transform: translate(5vw, -3vw) rotate(-40deg);
+}
+.bAttr7-Attr9{
+    height: 12vw;
+    transform: translate(-5vw, -3vw) rotate(-40deg);
+}
+.bAttr8-Attr9{
+    height: 12vw;
+    transform: translate(5vw, -3vw) rotate(40deg);
+}
+
+.sbBtn{
+    margin-bottom: 4vw;
+    text-align: center;
+    font-size: 2em;
+    max-width: 70%;
+    border-radius: 10px;
+}
+#mySaver{
+    background-color: green;
+}
+#myLoader{
+    background-color: blue;
+}
+#ResetSkills{
+    background-color: red;
+}
+#mySaver:hover, #myLoader:hover, #ResetSkills:hover{
+    box-shadow: 0 0 5px 5px rgb(255, 255, 255);
+}
+.Skill{
+     background-color: black;
+    transition: 0.3s
+}
+.orclr:hover{
+    box-shadow: 0 0 5px 5px orange;
+    height: 7.5vw;
+    width: 7.5vw;
+}
+.ywclr:hover{
+    box-shadow: 0 0 5px 5px yellow;
+    height: 7.5vw;
+    width: 7.5vw;
+}
+.lbclr:hover{
+    box-shadow: 0 0 5px 5px aqua;
+    height: 7.5vw;
+    width: 7.5vw;
+}
+.owclr:hover{
+    box-shadow: 0 0 5px 5px floralwhite;
+    height: 7.5vw;
+    width: 7.5vw;
+}
+.ngclr:hover{
+    box-shadow: 0 0 5px 5px chartreuse;
+    height: 7.5vw;
+    width: 7.5vw;
+}
+.svclr:hover{
+    box-shadow: 0 0 5px 5px silver;
+    height: 7.5vw;
+    width: 7.5vw;
+}
+.dgclr:hover{
+    box-shadow: 0 0 5px 5px green;
+    height: 7.5vw;
+    width: 7.5vw;
+}
+.rdclr:hover{
+    box-shadow: 0 0 5px 5px rgb(254, 0, 2);
+    height: 7.5vw;
+    width: 7.5vw;    
+}
+
+/* .Skill:hover{
+    box-shadow: 0 0 7px 7px aqua;
+} */
+/* .orclr:hover{
+    box-shadow: 0 0 4px 4px orange, 
+    inset 0 0 2px 2px orange;
+    height: 7.5vw;
+    width: 7.5vw;
+} */
